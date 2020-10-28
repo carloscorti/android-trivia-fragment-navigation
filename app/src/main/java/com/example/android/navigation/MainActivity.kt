@@ -17,6 +17,7 @@
 package com.example.android.navigation
 
 import android.os.Bundle
+import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
@@ -33,13 +34,10 @@ class MainActivity : AppCompatActivity() {
 
         val navFragmentController = this.findNavController(R.id.nav_host_fragment_main)
         NavigationUI.setupActionBarWithNavController(this, navFragmentController)
-
-
     }
 
     override fun onSupportNavigateUp(): Boolean {
         val navFragmentController = this.findNavController(R.id.nav_host_fragment_main)
         return navFragmentController.navigateUp()
-
     }
 }

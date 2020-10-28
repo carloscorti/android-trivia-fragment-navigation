@@ -20,6 +20,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
@@ -35,6 +36,9 @@ class GameOverFragment : Fragment() {
         binding.tryAgainButton.setOnClickListener(
                 Navigation.createNavigateOnClickListener(R.id.action_gameOverFragment_to_gameFragment)
         )
+
+        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.game_over)
+
         return binding.root
     }
 }

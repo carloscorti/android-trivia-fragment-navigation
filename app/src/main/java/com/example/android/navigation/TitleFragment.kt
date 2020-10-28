@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
 import com.example.android.navigation.databinding.FragmentTitleBinding
@@ -24,6 +25,10 @@ class TitleFragment : Fragment() {
         binding.playButton.setOnClickListener(
                 Navigation.createNavigateOnClickListener(R.id.action_titleFragment_to_gameFragment)
         )
+
+        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.android_trivia)
+
+
         return  binding.root
     }
 

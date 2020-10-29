@@ -8,13 +8,13 @@
             <LayoutPositions>
               <option name="myPositions">
                 <map>
-                  <entry key="aboutFragment">
+                  <entry key="about_menu_item">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-646" />
-                            <option name="y" value="-255" />
+                            <option name="x" value="-737" />
+                            <option name="y" value="-250" />
                           </Point>
                         </option>
                       </LayoutPositions>

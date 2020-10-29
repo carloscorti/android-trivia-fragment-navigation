@@ -54,6 +54,12 @@ class GameWonFragment : Fragment() {
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.winner_menu, menu)
+        // check if the intent in activity this fragment is from resolves in any other app which can handle
+        // the implicit itent (the action the intent emits action)
+        if(null == getShareIntent().resolveActivity(requireActivity().packageManager)) {
+            // if no ap can handle implicit intent action hide share item from menu
+            menu.findItem(R.id.share).isVisible = false
+        }
     }
 
     private fun getShareIntent(): Intent {
@@ -62,6 +68,7 @@ class GameWonFragment : Fragment() {
 //        shareIntent.type = "text/plain"
 //        shareIntent.putExtra(Intent.EXTRA_TEXT,
 //                getString(R.string.share_success_text, args.questionIndex, args.numQuestions))
+//        return shareIntent
         return ShareCompat.IntentBuilder.from(requireActivity())
                 .setType("text/plain")
                 .setText(getString(R.string.share_success_text, args.questionIndex, args.numQuestions))

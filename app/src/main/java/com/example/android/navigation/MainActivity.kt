@@ -64,9 +64,20 @@ class MainActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         val navFragmentController = this.findNavController(R.id.nav_host_fragment_main)
 
-        return NavigationUI.navigateUp(navFragmentController, drawerLayout)
-//        return navFragmentController.navigateUp()
+//        return NavigationUI.navigateUp(navFragmentController, drawerLayout)
+        return navFragmentController.navigateUp()
 
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (drawerLayout.isDrawerOpen(binding.navViewMain)) {
+            drawerLayout.closeDrawer(binding.navViewMain)
+        }
+        if (!drawerLayout.isDrawerOpen(binding.navViewMain) && item.itemId != R.id.about_menu_item){
+            drawerLayout.openDrawer(binding.navViewMain)
+        }
+
+        return super.onOptionsItemSelected(item)
     }
 
 
